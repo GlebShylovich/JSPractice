@@ -1,4 +1,5 @@
 const container = document.querySelector(".container");
+const row = document.querySelector('.row');
 
 function getData() {
   fetch("https://restcountries.com/v3.1/all")
@@ -6,7 +7,7 @@ function getData() {
       return response.json();
     })
     .then((data) => {
-      for (var i = 0; i < data.length; i += 5) {
+      for (let i = 0; i < data.length; i += 5) {
         const flag = data[i].flags.png;
         const country = data[i].name.official;
         const region = data[i].region;
@@ -22,7 +23,6 @@ function getData() {
 getData();
 
 function createCard(data, flag, country, region, population, language, currency) {
-  const card = document.createElement("div");
   const template = `
     <div class="col">
         <div class="card h-100">
@@ -37,8 +37,7 @@ function createCard(data, flag, country, region, population, language, currency)
         </div>
     </div>
     `;
-    for (var i = 0; i < data.length; i++) {
-      card.innerHTML = template;
-      container.append(card);
+    for (let i = 0; i < data.length; i++) {
+      row.innerHTML = template;
     }
 }
