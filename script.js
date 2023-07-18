@@ -38,6 +38,6 @@ function createCard(data, flag, country, region, population, language, currency)
     </div>
     `;
     for (let i = 0; i < data.length; i++) {
-      row.innerHTML = template;
+      row.innerHTML += template;
     }
 }
